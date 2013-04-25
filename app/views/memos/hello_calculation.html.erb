@@ -1,0 +1,45 @@
+ <html>
+   <head>
+      <title>Hello Calculation!</title>
+   </head>
+   
+   
+   <body>
+     
+     <h1>Listing memos</h1>
+
+     <div id="memos">
+      <% @memos.each do |memo| %>
+         <%= render 'show', memo: memo %>
+      <% end %>
+     </div>
+
+     <br />
+
+     <h1>New memo</h1>
+     <%= render 'form', memo: @new_memo, submit_text: 'Create' %>
+
+
+     <h1>Hello Calculation!</h1>
+     <h2>Calculating</h2>
+     <h3>最大入力値は 32767.000 までです。</h3>
+     <form neme="style" method="post" action="/memos/hello_calculation">
+     <p>
+        入力１：<input type="text" name="dest1"  value= <%= @input_calcu1 %> >
+                <select id="page_name" name= "page[name]" >
+                   <option value="1">+</option>
+                   <option value="2">-</option>
+                   <option value="3">*</option>
+                   <option value="4">/</option>
+               </select>
+       入力２：<input type="text" name="dest2"  value= <%= @input_calcu2 %> >
+                <input type="submit" value="計算実行" >
+       出力：<input type="text" name="dest3"  value= <%= @output_calcu %> >
+     </p>
+     </form>
+     <%= p @ex.message if  @valid_flag == false %>
+     <h2>Thank You !!!</h2>
+
+   </body>
+</html>
+
