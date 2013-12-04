@@ -144,5 +144,7 @@ class MemosController < ApplicationController
           else
               return true
           end
-    end
+   end
+   def test_jenkins
+   end
 end
